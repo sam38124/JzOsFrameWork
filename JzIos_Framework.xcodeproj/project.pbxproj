@@ -14,6 +14,8 @@
 		10750A4D23BCAEA30062E4A0 /* pagemenory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10750A4C23BCAEA20062E4A0 /* pagemenory.swift */; };
 		10750A4F23BCB8E40062E4A0 /* JzFragment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10750A4E23BCB8E40062E4A0 /* JzFragment.swift */; };
 		10750A5523BCD6EA0062E4A0 /* DataStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10750A5423BCD6EA0062E4A0 /* DataStream.swift */; };
+		CA6B99C623C6D338005AD7FC /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6B99C523C6D338005AD7FC /* extension.swift */; };
+		CAE2AA7523C6D651003DA5BC /* devicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE2AA7423C6D651003DA5BC /* devicInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		10750A4C23BCAEA20062E4A0 /* pagemenory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pagemenory.swift; sourceTree = "<group>"; };
 		10750A4E23BCB8E40062E4A0 /* JzFragment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JzFragment.swift; sourceTree = "<group>"; };
 		10750A5423BCD6EA0062E4A0 /* DataStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStream.swift; sourceTree = "<group>"; };
+		CA6B99C523C6D338005AD7FC /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
+		CAE2AA7423C6D651003DA5BC /* devicInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = devicInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,7 @@
 				10750A4923BC8DDE0062E4A0 /* JzActivity.storyboard */,
 				10750A4E23BCB8E40062E4A0 /* JzFragment.swift */,
 				10750A5423BCD6EA0062E4A0 /* DataStream.swift */,
+				CA6B99C523C6D338005AD7FC /* extension.swift */,
 			);
 			path = JzIos_Framework;
 			sourceTree = "<group>";
@@ -82,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				10750A4C23BCAEA20062E4A0 /* pagemenory.swift */,
+				CAE2AA7423C6D651003DA5BC /* devicInfo.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -170,8 +176,10 @@
 				10750A4D23BCAEA30062E4A0 /* pagemenory.swift in Sources */,
 				10750A4423BC8AB30062E4A0 /* JzActivity.swift in Sources */,
 				10750A5523BCD6EA0062E4A0 /* DataStream.swift in Sources */,
+				CA6B99C623C6D338005AD7FC /* extension.swift in Sources */,
 				10750A4823BC8BF40062E4A0 /* ControlInstance.swift in Sources */,
 				10750A4F23BCB8E40062E4A0 /* JzFragment.swift in Sources */,
+				CAE2AA7523C6D651003DA5BC /* devicInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,7 +312,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = UMT5SK6MNZ;
+				DEVELOPMENT_TEAM = HEQGGF6N89;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -331,7 +339,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = UMT5SK6MNZ;
+				DEVELOPMENT_TEAM = HEQGGF6N89;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";

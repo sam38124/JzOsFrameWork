@@ -44,8 +44,8 @@ open class DataStream:NSObject{
             let writesize=oStream?.write(alldata, maxLength: alldata.count)
                    if(writesize != alldata.count){ throw customError.Winterror}
         }catch{
-            
-            print("發生錯誤")
+            print("WriteInt錯誤")
+            throw customError.Winterror
         }
     }
     public func writeUTF(_ string: String)throws{
@@ -65,6 +65,7 @@ open class DataStream:NSObject{
             if(writesize != alldata.count){ throw customError.Wutferror}
         }catch {
                 print("發生錯誤")
+            throw customError.Wutferror
         }
     }
     public func ReadUTf()throws ->String{
