@@ -37,7 +37,7 @@ class ViewController:JzActivity{
         //設定要切換頁面的rootview
         rootView=container
 
-        //設定首頁
+        //設定要成為首頁的Controller
         let a=PeaceDefine().Page_Home
 
         JzActivity.getControlInstance.setHome(a, "Home")
