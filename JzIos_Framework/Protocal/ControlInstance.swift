@@ -38,7 +38,7 @@ public protocol ControlInstance {
     //取得裝置資訊
     func getDeviceInformation() -> deviceInfo
     //吐司的顯示
-    func Toast(_ text:String)
+    func toast(_ text:String)
     //關閉整個app
     func closeApp()
     //取得現在顯示的頁面的Tag名稱

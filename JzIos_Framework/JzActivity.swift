@@ -44,7 +44,7 @@ open class JzActivity:UIViewController,ControlInstance {
         return deviceInfo()
     }
     
-    public func Toast(_ a: String) {
+    public func toast(_ a: String) {
         view.showToast(a)
     }
     
