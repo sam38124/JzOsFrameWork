@@ -3,7 +3,7 @@
 # JzOsFrameWork
 這是一套基於Android邏輯概念的IOS開發框架，讓開發者能迅速完成Android與IOS的原生APP開發，而不需要進行邏輯上的切換~
 
-android版本:[https://github.com/sam38124/JzFrameWork](url)
+[android版本](https://github.com/sam38124/JzFrameWork)
 ## 目錄
 * [如何導入到專案](#Import)
 * [如何使用](#Use)
