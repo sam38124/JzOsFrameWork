@@ -1,0 +1,11 @@
+framework module JzIos_Framework {
+  umbrella header "JzIos_Framework.h"
+
+  export *
+  module * { export * }
+}
+
+module JzIos_Framework.Swift {
+    header "JzIos_Framework-Swift.h"
+    requires objc
+}

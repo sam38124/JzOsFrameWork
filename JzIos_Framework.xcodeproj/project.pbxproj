@@ -16,6 +16,7 @@
 		10750A5523BCD6EA0062E4A0 /* DataStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10750A5423BCD6EA0062E4A0 /* DataStream.swift */; };
 		CA6B99C623C6D338005AD7FC /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6B99C523C6D338005AD7FC /* extension.swift */; };
 		CAE2AA7523C6D651003DA5BC /* devicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE2AA7423C6D651003DA5BC /* devicInfo.swift */; };
+		CAE2AA7823C80AA0003DA5BC /* JzIos_Framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10750A3723BC8A640062E4A0 /* JzIos_Framework.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAE2AA7823C80AA0003DA5BC /* JzIos_Framework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
