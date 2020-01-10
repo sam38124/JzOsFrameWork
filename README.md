@@ -38,9 +38,8 @@ class ViewController:JzActivity{
         rootView=container
 
         //設定要成為首頁的Controller
-        let a=PeaceDefine().Page_Home
-
-        JzActivity.getControlInstance.setHome(a, "Home")
+        let Page_Home=UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Page_Home")as!Page_Home
+        JzActivity.getControlInstance.setHome(Page_Home, "Home")
     }
     override func changePageListener(_ controler: pagemenory) {
 
