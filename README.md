@@ -15,11 +15,11 @@ android版本:[https://github.com/sam38124/JzFrameWork](url)
 > 支持framework導入。 <br/>
 
 #### 1.首先將framework拉入要導入的Project當中
-<img src="https://github.com/sam38124/JzOsFrameWork/blob/master/i2.png" width = "200"  alt="i1" /><a name="Use"></a>
+<img src="https://github.com/sam38124/JzOsFrameWork/blob/master/i2.png" width = "800"  alt="i1" /><a name="Use"></a>
 #### 2.將三個選項打勾
-<img src="https://github.com/sam38124/JzOsFrameWork/blob/master/i1.png" width = "200"  alt="i1" /><a name="Use"></a>
+<img src="https://github.com/sam38124/JzOsFrameWork/blob/master/i1.png" width = "800"  alt="i1" /><a name="Use"></a>
 #### 3.選擇Embed and signed
-<img src="https://github.com/sam38124/JzOsFrameWork/blob/master/i3.png" width = "200"  alt="i1" /><a name="Use"></a>
+<img src="https://github.com/sam38124/JzOsFrameWork/blob/master/i3.png" width = "800"  alt="i1" /><a name="Use"></a>
 <a name="Use"></a>
 ## 如何使用
 
