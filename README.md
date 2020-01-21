@@ -68,9 +68,11 @@ public protocol ControlInstance {
     //頁面切換
     func changePage(_ newViewController: UIViewController,_ tag:String,_ goback:Bool)
     //Frag切換
-    func changeFrage(_ original: UIView,_ newViewController: UIViewController)
-    //打開Dialog
+    func changeFrage(_ original: UIView,_ newViewController: UIViewController,_ originViewController:UIViewController)
+    //打開Dialog(only one只能有一個Dialog,新的被舊的取代)
     func openDiaLog(_ newViewController: UIViewController)
+    //打開Dialog(multiple可以顯示多個Dialog)
+    func openMultiDiaLog(_ newViewController: UIViewController)
     //關閉Dialog
     func closeDialLog()
     //返回首頁
@@ -89,6 +91,24 @@ public protocol ControlInstance {
     func closeApp()
     //取得現在顯示的頁面的Tag名稱
     func getNowPageTag() -> String
+    //取得現在的頁面
+    func getNowPage() -> UIViewController
+    //設定側滑選單
+    func setDrawer(_ newViewController: UIViewController)
+    //打開側滑選單
+    func openDrawer()
+    //關閉側滑選單
+    func closeDrawer()
+    //打開拖曳側滑功能
+    func canDragDrawer()
+    //關閉拖曳側滑功能
+    func lockDrawer()
+    //取得商店上的版本號
+    func getStoreVersion(_ caller:GetVersion)
+    //將一個ViewController從螢幕上移除
+    func removeController(_ controller:UIViewController)
+    //從Storyboard取得一個新的controller實例
+    func getNewController(_ name:String,_ id:String) -> UIViewController
 }
 ```
 
