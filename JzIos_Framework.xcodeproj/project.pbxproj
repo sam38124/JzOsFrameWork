@@ -8,15 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		10750A3C23BC8A640062E4A0 /* JzIos_Framework.h in Headers */ = {isa = PBXBuildFile; fileRef = 10750A3A23BC8A640062E4A0 /* JzIos_Framework.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		10750A4423BC8AB30062E4A0 /* JzActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10750A4323BC8AB30062E4A0 /* JzActivity.swift */; };
-		10750A4823BC8BF40062E4A0 /* ControlInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10750A4723BC8BF40062E4A0 /* ControlInstance.swift */; };
 		10750A4A23BC8DDE0062E4A0 /* JzActivity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10750A4923BC8DDE0062E4A0 /* JzActivity.storyboard */; };
-		10750A4D23BCAEA30062E4A0 /* pagemenory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10750A4C23BCAEA20062E4A0 /* pagemenory.swift */; };
 		10750A4F23BCB8E40062E4A0 /* JzFragment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10750A4E23BCB8E40062E4A0 /* JzFragment.swift */; };
 		10750A5523BCD6EA0062E4A0 /* DataStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10750A5423BCD6EA0062E4A0 /* DataStream.swift */; };
 		CA6B99C623C6D338005AD7FC /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6B99C523C6D338005AD7FC /* extension.swift */; };
-		CAE2AA7523C6D651003DA5BC /* devicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE2AA7423C6D651003DA5BC /* devicInfo.swift */; };
-		CAE2AA7823C80AA0003DA5BC /* JzIos_Framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10750A3723BC8A640062E4A0 /* JzIos_Framework.framework */; };
+		CACAD4AE23D5A69E00AA76FB /* JzAdapter_Protocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACAD4AD23D5A69E00AA76FB /* JzAdapter_Protocal.swift */; };
+		CAE2AA8823C83E08003DA5BC /* JzActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10750A4323BC8AB30062E4A0 /* JzActivity.swift */; };
+		CAE2AAA323C85E46003DA5BC /* pagemenory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10750A4C23BCAEA20062E4A0 /* pagemenory.swift */; };
+		CAE2AAA423C85E4A003DA5BC /* devicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE2AA7423C6D651003DA5BC /* devicInfo.swift */; };
+		CAE2AAA923C85EBB003DA5BC /* ControlInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10750A4723BC8BF40062E4A0 /* ControlInstance.swift */; };
+		CAEBAEA323CC6477004B7F40 /* GetVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEBAEA223CC6477004B7F40 /* GetVersion.swift */; };
+		CAEBAFAC23CF6C2E004B7F40 /* JzAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEBAFAB23CF6C2E004B7F40 /* JzAdapter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,7 +32,10 @@
 		10750A4E23BCB8E40062E4A0 /* JzFragment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JzFragment.swift; sourceTree = "<group>"; };
 		10750A5423BCD6EA0062E4A0 /* DataStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStream.swift; sourceTree = "<group>"; };
 		CA6B99C523C6D338005AD7FC /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
+		CACAD4AD23D5A69E00AA76FB /* JzAdapter_Protocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JzAdapter_Protocal.swift; sourceTree = "<group>"; };
 		CAE2AA7423C6D651003DA5BC /* devicInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = devicInfo.swift; sourceTree = "<group>"; };
+		CAEBAEA223CC6477004B7F40 /* GetVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVersion.swift; sourceTree = "<group>"; };
+		CAEBAFAB23CF6C2E004B7F40 /* JzAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JzAdapter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,7 +43,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CAE2AA7823C80AA0003DA5BC /* JzIos_Framework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +77,7 @@
 				10750A4E23BCB8E40062E4A0 /* JzFragment.swift */,
 				10750A5423BCD6EA0062E4A0 /* DataStream.swift */,
 				CA6B99C523C6D338005AD7FC /* extension.swift */,
+				CAEBAFAB23CF6C2E004B7F40 /* JzAdapter.swift */,
 			);
 			path = JzIos_Framework;
 			sourceTree = "<group>";
@@ -81,6 +86,8 @@
 			isa = PBXGroup;
 			children = (
 				10750A4723BC8BF40062E4A0 /* ControlInstance.swift */,
+				CAEBAEA223CC6477004B7F40 /* GetVersion.swift */,
+				CACAD4AD23D5A69E00AA76FB /* JzAdapter_Protocal.swift */,
 			);
 			path = Protocal;
 			sourceTree = "<group>";
@@ -175,13 +182,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10750A4D23BCAEA30062E4A0 /* pagemenory.swift in Sources */,
-				10750A4423BC8AB30062E4A0 /* JzActivity.swift in Sources */,
+				CAEBAFAC23CF6C2E004B7F40 /* JzAdapter.swift in Sources */,
+				CAE2AAA323C85E46003DA5BC /* pagemenory.swift in Sources */,
+				CAEBAEA323CC6477004B7F40 /* GetVersion.swift in Sources */,
 				10750A5523BCD6EA0062E4A0 /* DataStream.swift in Sources */,
 				CA6B99C623C6D338005AD7FC /* extension.swift in Sources */,
-				10750A4823BC8BF40062E4A0 /* ControlInstance.swift in Sources */,
 				10750A4F23BCB8E40062E4A0 /* JzFragment.swift in Sources */,
-				CAE2AA7523C6D651003DA5BC /* devicInfo.swift in Sources */,
+				CAE2AAA923C85EBB003DA5BC /* ControlInstance.swift in Sources */,
+				CAE2AA8823C83E08003DA5BC /* JzActivity.swift in Sources */,
+				CAE2AAA423C85E4A003DA5BC /* devicInfo.swift in Sources */,
+				CACAD4AE23D5A69E00AA76FB /* JzAdapter_Protocal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,13 +249,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -296,12 +307,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -329,9 +341,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Jianzhi.JzIos-Framework";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -356,8 +369,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Jianzhi.JzIos-Framework";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
