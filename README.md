@@ -56,7 +56,7 @@ class ViewController:JzActivity{
 ```swift
 public protocol ControlInstance {
     //取得紀錄
-    func getPro(_ name:String)->String
+    func getPro(_ name: String,_ normal:String)->String
     //保存紀錄
     func setPro(_ name:String,_ key:String)
     //設定首頁
@@ -69,6 +69,8 @@ public protocol ControlInstance {
     func changePage(_ newViewController: UIViewController,_ tag:String,_ goback:Bool)
     //Frag切換
     func changeFrage(_ original: UIView,_ newViewController: UIViewController,_ originViewController:UIViewController)
+    //取得tag為輸入值的頁面
+    func getPageByTag(_ tag:String) -> UIViewController?
     //打開Dialog(only one只能有一個Dialog,新的被舊的取代)
     func openDiaLog(_ newViewController: UIViewController)
     //打開Dialog(multiple可以顯示多個Dialog)
