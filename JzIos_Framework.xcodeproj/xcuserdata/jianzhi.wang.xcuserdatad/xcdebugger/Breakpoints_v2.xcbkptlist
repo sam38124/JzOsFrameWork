@@ -16,7 +16,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "211"
             endingLineNumber = "211"
-            landmarkName = "openDiaLog(_:)"
+            landmarkName = "goBack()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -11,6 +11,8 @@
 		10750A4A23BC8DDE0062E4A0 /* JzActivity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10750A4923BC8DDE0062E4A0 /* JzActivity.storyboard */; };
 		10750A4F23BCB8E40062E4A0 /* JzFragment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10750A4E23BCB8E40062E4A0 /* JzFragment.swift */; };
 		10750A5523BCD6EA0062E4A0 /* DataStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10750A5423BCD6EA0062E4A0 /* DataStream.swift */; };
+		CA24321023E2C599007A3EDC /* IQKeyboardManagerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA24320E23E2C592007A3EDC /* IQKeyboardManagerSwift.framework */; };
+		CA24321123E2C599007A3EDC /* IQKeyboardManagerSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CA24320E23E2C592007A3EDC /* IQKeyboardManagerSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CA6B99C623C6D338005AD7FC /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6B99C523C6D338005AD7FC /* extension.swift */; };
 		CACAD4AE23D5A69E00AA76FB /* JzAdapter_Protocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACAD4AD23D5A69E00AA76FB /* JzAdapter_Protocal.swift */; };
 		CAE2AA8823C83E08003DA5BC /* JzActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10750A4323BC8AB30062E4A0 /* JzActivity.swift */; };
@@ -20,6 +22,20 @@
 		CAEBAEA323CC6477004B7F40 /* GetVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEBAEA223CC6477004B7F40 /* GetVersion.swift */; };
 		CAEBAFAC23CF6C2E004B7F40 /* JzAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEBAFAB23CF6C2E004B7F40 /* JzAdapter.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CA24321223E2C599007A3EDC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CA24321123E2C599007A3EDC /* IQKeyboardManagerSwift.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		10750A3723BC8A640062E4A0 /* JzIos_Framework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JzIos_Framework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -31,6 +47,7 @@
 		10750A4C23BCAEA20062E4A0 /* pagemenory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pagemenory.swift; sourceTree = "<group>"; };
 		10750A4E23BCB8E40062E4A0 /* JzFragment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JzFragment.swift; sourceTree = "<group>"; };
 		10750A5423BCD6EA0062E4A0 /* DataStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStream.swift; sourceTree = "<group>"; };
+		CA24320E23E2C592007A3EDC /* IQKeyboardManagerSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IQKeyboardManagerSwift.framework; sourceTree = "<group>"; };
 		CA6B99C523C6D338005AD7FC /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
 		CACAD4AD23D5A69E00AA76FB /* JzAdapter_Protocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JzAdapter_Protocal.swift; sourceTree = "<group>"; };
 		CAE2AA7423C6D651003DA5BC /* devicInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = devicInfo.swift; sourceTree = "<group>"; };
@@ -43,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA24321023E2C599007A3EDC /* IQKeyboardManagerSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +86,7 @@
 		10750A3923BC8A640062E4A0 /* JzIos_Framework */ = {
 			isa = PBXGroup;
 			children = (
+				CA24320E23E2C592007A3EDC /* IQKeyboardManagerSwift.framework */,
 				10750A4B23BCAE910062E4A0 /* models */,
 				10750A4223BC8A990062E4A0 /* Protocal */,
 				10750A3A23BC8A640062E4A0 /* JzIos_Framework.h */,
@@ -123,6 +142,7 @@
 				10750A3323BC8A640062E4A0 /* Sources */,
 				10750A3423BC8A640062E4A0 /* Frameworks */,
 				10750A3523BC8A640062E4A0 /* Resources */,
+				CA24321223E2C599007A3EDC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -330,6 +350,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/JzIos_Framework",
+				);
 				INFOPLIST_FILE = JzIos_Framework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -358,6 +382,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/JzIos_Framework",
+				);
 				INFOPLIST_FILE = JzIos_Framework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;

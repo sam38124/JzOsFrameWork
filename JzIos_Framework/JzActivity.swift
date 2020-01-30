@@ -7,8 +7,20 @@
 //
 
 import Foundation
+import IQKeyboardManagerSwift
 import UIKit
 open class JzActivity:UIViewController,ControlInstance {
+
+    
+    public func getPageByTag(_ tag: String) -> UIViewController? {
+        for i in Pagememory{
+            if(i.tag == tag){
+                return i.page
+            }
+        }
+        return nil
+    }
+    
     public func getNewController(_ name: String, _ id: String) -> UIViewController {
         return UIStoryboard(name: name, bundle: nil).instantiateViewController(withIdentifier: id)
     }
@@ -20,6 +32,7 @@ open class JzActivity:UIViewController,ControlInstance {
     }
     
     public func openMultiDiaLog(_ newViewController: UIViewController) {
+         newViewController.view.backgroundColor = .none
         addChild(newViewController)
         self.rootView.addSubview(newViewController.view)
         newViewController.view.frame = self.rootView.bounds
@@ -142,18 +155,18 @@ open class JzActivity:UIViewController,ControlInstance {
             Fraging.view.removeFromSuperview()
             Fraging.removeFromParent()
         }
+        if(goback){
+                   let a=pagemenory()
+                   a.page=newViewController
+                   a.tag=tag
+                   Pagememory.append(a)
+                   changePageListener(a)
+               }
         addChild(newViewController)
         self.rootView.addSubview(newViewController.view)
         newViewController.view.frame = rootView.bounds
         newViewController.didMove(toParent: self)
         self.Fraging = newViewController
-        if(goback){
-            let a=pagemenory()
-            a.page=newViewController
-            a.tag=tag
-            Pagememory.append(a)
-            changePageListener(a)
-        }
     }
     
     public func changeFrage(_ original: UIView,_ newViewController: UIViewController,_ originViewController:UIViewController)
@@ -164,11 +177,11 @@ open class JzActivity:UIViewController,ControlInstance {
         newViewController.didMove(toParent: originViewController)
     }
     
-    public func getPro(_ name: String) -> String {
+    public func getPro(_ name: String,_ normal:String) -> String {
         let preferences = UserDefaults.standard
         let currentLevelKey = name
         if preferences.object(forKey: currentLevelKey) == nil {
-            return "nodata"
+            return normal
         } else {
             let currentLevel = preferences.string(forKey: currentLevelKey)!
             return currentLevel
@@ -177,7 +190,7 @@ open class JzActivity:UIViewController,ControlInstance {
     
     public func setPro(_ name: String, _ key: String) {
         let preferences = UserDefaults.standard
-        preferences.set(name,forKey: key)
+        preferences.set(key,forKey: name)
         let didSave = preferences.synchronize()
         if !didSave {
             print("saverror")
@@ -206,6 +219,7 @@ open class JzActivity:UIViewController,ControlInstance {
         changePageListener(newViewController)
     }
     public func openDiaLog(_ newViewController: UIViewController) {
+        newViewController.view.backgroundColor = .none
         if(Swipage==nil){
             addChild(newViewController)
             self.view.addSubview(newViewController.view)
@@ -247,6 +261,7 @@ open class JzActivity:UIViewController,ControlInstance {
     open var Pagememory=[pagemenory]()
     open var Fraging: UIViewController!
     override open func viewDidLoad() {
+         IQKeyboardManager.shared.enable = true
         JzActivity.getControlInstance=self
         viewInit()
         let pan = UIPanGestureRecognizer(
@@ -261,7 +276,6 @@ open class JzActivity:UIViewController,ControlInstance {
     open func changePageListener(_ controler: pagemenory) {
         print("switch\(controler.tag)")
     }
-    
     @objc func swipe(_ recognizer:UISwipeGestureRecognizer){
         if(drawer == nil||lockdrawer){return}
         let point=recognizer.location(in: self.view)
