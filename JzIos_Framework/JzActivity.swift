@@ -7,11 +7,33 @@
 //
 
 import Foundation
-import IQKeyboardManagerSwift
 import UIKit
 open class JzActivity:UIViewController,ControlInstance {
-
     
+    
+    public func closeDialLog(_ tag: String) {
+        var memory=[pagemenory]()
+        for i in AllDialog{
+            if(i.tag==tag){
+                i.page.willMove(toParent: nil)
+                i.page.view.removeFromSuperview()
+                i.page.removeFromParent()
+                i.page.dismiss(animated: true, completion: nil)
+                i.page=nil
+            }else{
+                memory.append(i)
+            }
+        }
+    AllDialog=memory
+    }
+    
+    public func getDrawer()->UIViewController {
+        return drawer
+    }
+    
+    
+    
+    var backview=UIView()
     public func getPageByTag(_ tag: String) -> UIViewController? {
         for i in Pagememory{
             if(i.tag == tag){
@@ -31,13 +53,7 @@ open class JzActivity:UIViewController,ControlInstance {
         controller.view.removeFromSuperview()
     }
     
-    public func openMultiDiaLog(_ newViewController: UIViewController) {
-         newViewController.view.backgroundColor = .none
-        addChild(newViewController)
-        self.rootView.addSubview(newViewController.view)
-        newViewController.view.frame = self.rootView.bounds
-        newViewController.didMove(toParent: self)
-    }
+    
     
     public func getNowPage() -> UIViewController {
         return Fraging
@@ -69,11 +85,14 @@ open class JzActivity:UIViewController,ControlInstance {
         UIView.animate(withDuration: 0.3) {
             self.Fraging.view.isUserInteractionEnabled=false
             self.drawer.view.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width*0.8,height: self.view.bounds.height)
+            self.Fraging.view.frame=self.Fraging.view.frame
+            self.Fraging.view.addSubview(self.backview)
         }
     }
     
     public func closeDrawer() {
         UIView.animate(withDuration: 0.3) {
+            self.backview.removeFromSuperview()
             self.Fraging.view.isUserInteractionEnabled=true
             self.drawer.view.frame = CGRect(x: 0-self.view.bounds.width*0.8, y: 0, width: self.view.bounds.width*0.8,height: self.view.bounds.height)
         }
@@ -156,12 +175,12 @@ open class JzActivity:UIViewController,ControlInstance {
             Fraging.removeFromParent()
         }
         if(goback){
-                   let a=pagemenory()
-                   a.page=newViewController
-                   a.tag=tag
-                   Pagememory.append(a)
-                   changePageListener(a)
-               }
+            let a=pagemenory()
+            a.page=newViewController
+            a.tag=tag
+            Pagememory.append(a)
+            changePageListener(a)
+        }
         addChild(newViewController)
         self.rootView.addSubview(newViewController.view)
         newViewController.view.frame = rootView.bounds
@@ -218,50 +237,43 @@ open class JzActivity:UIViewController,ControlInstance {
         Pagememory.remove(at: Pagememory.count-1)
         changePageListener(newViewController)
     }
-    public func openDiaLog(_ newViewController: UIViewController) {
-        newViewController.view.backgroundColor = .none
-        if(Swipage==nil){
-            addChild(newViewController)
-            self.view.addSubview(newViewController.view)
-            newViewController.view.frame = self.view.bounds
-            newViewController.didMove(toParent: self)
-            Swipage=newViewController
+    public func openDiaLog(_ newViewController: UIViewController,_ swipe:Bool,_ tag:String) {
+        if(swipe){
+            newViewController.view.backgroundColor = .none
         }else{
-            let className = String(describing: type(of: Swipage))
-            if(className==String(describing: type(of: newViewController))){
-                newViewController.viewDidLoad()
-            }else{
-                closeDialLog()
-                addChild(newViewController)
-                self.view.addSubview(newViewController.view)
-                newViewController.view.frame = self.view.bounds
-                newViewController.didMove(toParent: self)
-                Swipage=newViewController
-            }
-            print(className)
+            newViewController.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
         }
+        let page=pagemenory()
+        page.page=newViewController
+        page.tag=tag
+        addChild(newViewController)
+        self.view.addSubview(newViewController.view)
+        newViewController.view.frame = self.view.bounds
+        newViewController.didMove(toParent: self)
+        AllDialog.append(page)
     }
     
     public func closeDialLog() {
-        if(Swipage != nil){
-            Swipage!.willMove(toParent: nil)
-            Swipage!.view.removeFromSuperview()
-            Swipage!.removeFromParent()
-            Swipage!.dismiss(animated: true, completion: nil)
-            Swipage=nil
+        for i in AllDialog{
+            i.page.willMove(toParent: nil)
+            i.page.view.removeFromSuperview()
+            i.page.removeFromParent()
+            i.page.dismiss(animated: true, completion: nil)
+            i.page=nil
         }
+        AllDialog.removeAll()
     }
     
     var lockdrawer=false
     var candrag=false
     open var drawer: UIViewController!
     open var rootView: UIView!
-    open var Swipage:UIViewController? = nil
+    open var AllDialog=[pagemenory]()
     public static var getControlInstance:ControlInstance!
     open var Pagememory=[pagemenory]()
     open var Fraging: UIViewController!
     override open func viewDidLoad() {
-         IQKeyboardManager.shared.enable = true
+        backview.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
         JzActivity.getControlInstance=self
         viewInit()
         let pan = UIPanGestureRecognizer(
@@ -287,8 +299,6 @@ open class JzActivity:UIViewController,ControlInstance {
         if( point.x<self.view.bounds.width*0.8 && candrag){
             self.drawer.view.frame = CGRect(x: self.drawer.view.bounds.minX + point.x-self.view.bounds.width*0.8, y: 0, width: self.view.bounds.width*0.8, height: self.view.bounds.height)
         }
-        print(point.x)
-        print(point.y)
         if(recognizer.state == .ended && self.drawer.view.frame.maxX<self.view.bounds.width*0.6){
             closeDrawer()
         }else{

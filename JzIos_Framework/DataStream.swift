@@ -24,12 +24,23 @@ open class DataStream:NSObject{
         let _  = Stream.getStreamsToHost(withName: ip, port: port, inputStream: &iStream, outputStream: &oStream)
         iStream?.open()
         oStream?.open()
-        sleep(1)
-        if(oStream?.streamStatus.rawValue==1){
-            print("沒有連線")
-            throw customError.Openerror
+         let pastTime = Date().timeIntervalSince1970
+        while(true){
+            if(GetTime(pastTime)>3){
+                print("沒有連線")
+                throw customError.Openerror
+            }
+            if(oStream?.streamStatus.rawValue != 1){
+                return
+            }
         }
     }
+    
+    func GetTime(_ timeStamp: Double)-> Double{
+           let currentTime = Date().timeIntervalSince1970
+           let reduceTime : TimeInterval = currentTime - timeStamp
+           return reduceTime
+       }
     public func writeINT(_ int:Int)throws{
         do{
             if(oStream?.streamStatus.rawValue==1){

@@ -11,14 +11,14 @@ import UIKit
 public class deviceInfo{
     //系統版本
     let systemVersion = UIDevice.current.systemVersion
-    //裝置UDID
+    //裝置UDIDｂｂ
     let identifierNumber = UIDevice.current.identifierForVendor?.uuidString
     //裝置名稱
     let systemName = UIDevice.current.systemName
     //裝置型號
     let model = UIDevice.current.model
     //裝置具體型號（下邊列出）
-    let modelName = UIDevice.current.modelName
+//    let modelName = UIDevice.current.modelName
     //裝置區域化型號如A1533
     let localizedModel = UIDevice.current.localizedModel
 }
