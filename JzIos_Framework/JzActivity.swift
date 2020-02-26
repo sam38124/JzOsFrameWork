@@ -9,6 +9,12 @@
 import Foundation
 import UIKit
 open class JzActivity:UIViewController,ControlInstance {
+    public func goAppStore(appid:String) {
+        let  urlString =  "itms-apps://itunes.apple.com/app/id\(appid)"
+        let  url =  URL (string: urlString)
+        UIApplication.shared.openURL(url!)
+    }
+    
     
     
     public func closeDialLog(_ tag: String) {
@@ -66,6 +72,7 @@ open class JzActivity:UIViewController,ControlInstance {
                 caller.versionBack(nil)
                 return }
             let DaS=String(data: data, encoding: .utf8)!
+             if(DaS.components(separatedBy: "\"version\"").count<2){return}
             let NewVersion=DaS.components(separatedBy: "\"version\"")[1].components(separatedBy:"\"")[1]
             caller.versionBack(NewVersion)
         }

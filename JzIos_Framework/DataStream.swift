@@ -9,6 +9,7 @@ import Foundation
 open class DataStream:NSObject{
     var iStream: InputStream? = nil
     var oStream: OutputStream? = nil
+    var timeout=10
     enum customError : Error{
         case Rinterror
         case Rutferror
@@ -20,10 +21,11 @@ open class DataStream:NSObject{
         iStream?.close()
         oStream?.close()
     }
-    public func SetStream(_ ip:String,_ port:Int)throws{
+    public func SetStream(_ ip:String,_ port:Int,_ timeout:Int=10)throws{
         let _  = Stream.getStreamsToHost(withName: ip, port: port, inputStream: &iStream, outputStream: &oStream)
         iStream?.open()
         oStream?.open()
+        self.timeout=timeout
          let pastTime = Date().timeIntervalSince1970
         while(true){
             if(GetTime(pastTime)>3){
@@ -106,10 +108,10 @@ open class DataStream:NSObject{
             let long=Int(buf[0])*256+Int(buf[1])
             buf=Array(repeating: UInt8(255), count: 0)
             var readsize=0
-            var fal=0
+            let pastTime = Date().timeIntervalSince1970
             while(readsize<long){
-                if(oStream?.streamStatus.rawValue==1||fal>=10){
-                    print("沒有連線")
+                if(oStream?.streamStatus.rawValue==1||Int(GetTime(pastTime))>timeout){
+                    print("連線超時")
                     throw customError.Openerror
                 }
                 var buf2=Array(repeating: UInt8(0), count: 1)
@@ -131,10 +133,10 @@ open class DataStream:NSObject{
             let long=Int(buf[0])*256+Int(buf[1])
             buf=Array(repeating: UInt8(255), count: 0)
             var readsize=0
-            var fal=0
+            let pastTime = Date().timeIntervalSince1970
             while(readsize<long){
-                if(oStream?.streamStatus.rawValue==1||fal>=10){
-                    print("沒有連線")
+                if(oStream?.streamStatus.rawValue==1||Int(GetTime(pastTime))>timeout){
+                    print("連線超時")
                     throw customError.Openerror
                 }
                 var buf2=Array(repeating: UInt8(0), count: 1)
@@ -168,9 +170,10 @@ open class DataStream:NSObject{
     public func ReadInt()throws ->Int{
         var buf = Array(repeating: UInt8(0), count: 0)
         var readsize=0
+         let pastTime = Date().timeIntervalSince1970
         while(readsize<4){
-            if(oStream?.streamStatus.rawValue==1){
-                print("沒有連線")
+            if(oStream?.streamStatus.rawValue==1||Int(GetTime(pastTime))>timeout){
+                print("連線超時")
                 throw customError.Openerror
             }
             var buf2=Array(repeating: UInt8(0), count: 1)

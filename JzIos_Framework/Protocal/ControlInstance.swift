@@ -67,4 +67,6 @@ public protocol ControlInstance {
     func removeController(_ controller:UIViewController)
     //從Storyboard取得一個新的controller實例
     func getNewController(_ name:String,_ id:String) -> UIViewController
+    //跳轉至apple商店
+    func goAppStore(appid:String)
 }
