@@ -55,7 +55,7 @@ class ViewController:JzActivity{
 <a name="All"></a>
 ```swift
 public protocol ControlInstance {
-    //取得紀錄
+   //取得紀錄
     func getPro(_ name: String,_ normal:String)->String
     //保存紀錄
     func setPro(_ name:String,_ key:String)
@@ -71,12 +71,12 @@ public protocol ControlInstance {
     func changeFrage(_ original: UIView,_ newViewController: UIViewController,_ originViewController:UIViewController)
     //取得tag為輸入值的頁面
     func getPageByTag(_ tag:String) -> UIViewController?
-    //打開Dialog(only one只能有一個Dialog,新的被舊的取代)
-    func openDiaLog(_ newViewController: UIViewController)
-    //打開Dialog(multiple可以顯示多個Dialog)
-    func openMultiDiaLog(_ newViewController: UIViewController)
-    //關閉Dialog
+    //打開Dialog
+    func openDiaLog(_ newViewController: UIViewController,_ swipe:Bool,_ tag:String)
+    //關閉所有Dialog
     func closeDialLog()
+    //關閉tag為輸入值的Dialog
+    func closeDialLog(_ tag:String)
     //返回首頁
     func goMenu()
     //取得Viewcontroller
@@ -101,6 +101,8 @@ public protocol ControlInstance {
     func openDrawer()
     //關閉側滑選單
     func closeDrawer()
+    //取得側滑選單
+    func getDrawer()->UIViewController
     //打開拖曳側滑功能
     func canDragDrawer()
     //關閉拖曳側滑功能
@@ -111,6 +113,8 @@ public protocol ControlInstance {
     func removeController(_ controller:UIViewController)
     //從Storyboard取得一個新的controller實例
     func getNewController(_ name:String,_ id:String) -> UIViewController
+    //跳轉至apple商店
+    func goAppStore(appid:String)
 }
 ```
 
