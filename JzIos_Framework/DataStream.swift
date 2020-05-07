@@ -9,7 +9,7 @@ import Foundation
 open class DataStream:NSObject{
     var iStream: InputStream? = nil
     var oStream: OutputStream? = nil
-    var timeout=10
+    var timeout=3
     enum customError : Error{
         case Rinterror
         case Rutferror
@@ -20,8 +20,11 @@ open class DataStream:NSObject{
     public func close(){
         iStream?.close()
         oStream?.close()
+        DispatchQueue.global().async {
+          
+        }
     }
-    public func SetStream(_ ip:String,_ port:Int,_ timeout:Int=10)throws{
+    public func setStream(_ ip:String,_ port:Int,_ timeout:Int=3)throws{
         let _  = Stream.getStreamsToHost(withName: ip, port: port, inputStream: &iStream, outputStream: &oStream)
         iStream?.open()
         oStream?.open()
@@ -101,7 +104,7 @@ open class DataStream:NSObject{
             throw customError.Wutferror
         }
     }
-    public func ReadUTf()throws ->String{
+    public func readUTf()throws ->String{
         var buf=Array(repeating: UInt8(255), count: 2)
         let tmp=iStream?.read(&buf, maxLength: 2)
         if(tmp==0){ throw customError.Rutferror}else{
@@ -167,7 +170,7 @@ open class DataStream:NSObject{
         }
         return re
     }
-    public func ReadInt()throws ->Int{
+    public func readInt()throws ->Int{
         var buf = Array(repeating: UInt8(0), count: 0)
         var readsize=0
          let pastTime = Date().timeIntervalSince1970
@@ -185,7 +188,7 @@ open class DataStream:NSObject{
             return int
       
     }
-    public func ReadData(){
+    public func readData(){
         var buf = Array(repeating: UInt8(255), count: 1024)
         //        buf.append(UInt8(9))
         if let n = iStream?.read(&buf, maxLength: 1024) {

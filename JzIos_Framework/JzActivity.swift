@@ -9,6 +9,51 @@
 import Foundation
 import UIKit
 open class JzActivity:UIViewController,ControlInstance {
+    public func getPro(_ name: String, _ normal: Bool) -> Bool {
+        let preferences = UserDefaults.standard
+             let currentLevelKey = name
+             if preferences.object(forKey: currentLevelKey) == nil {
+                 return normal
+             } else {
+                let currentLevel = preferences.bool(forKey: currentLevelKey)
+                 return currentLevel
+             }
+    }
+    
+    public func getPro(_ name: String, _ normal: Int) -> Int {
+        let preferences = UserDefaults.standard
+                    let currentLevelKey = name
+                    if preferences.object(forKey: currentLevelKey) == nil {
+                        return normal
+                    } else {
+                       let currentLevel = preferences.integer(forKey: currentLevelKey)
+                        return currentLevel
+                    }
+    }
+    
+    public func setPro(_ name: String, _ key: Bool) {
+        let preferences = UserDefaults.standard
+               preferences.set(key,forKey: name)
+               let didSave = preferences.synchronize()
+               if !didSave {
+                   print("saverror")
+               }
+    }
+    
+    public func setPro(_ name: String, _ key: Int) {
+        let preferences = UserDefaults.standard
+               preferences.set(key,forKey: name)
+               let didSave = preferences.synchronize()
+               if !didSave {
+                   print("saverror")
+               }
+    }
+    
+    public func removePro() {
+        let domain = Bundle.main.bundleIdentifier!
+        UserDefaults.standard.removePersistentDomain(forName: domain)
+    }
+    
     public func goAppStore(appid:String) {
         let  urlString =  "itms-apps://itunes.apple.com/app/id\(appid)"
         let  url =  URL (string: urlString)
@@ -122,7 +167,7 @@ open class JzActivity:UIViewController,ControlInstance {
     }
     
     public func closeApp() {
-        self.dismiss(animated: false, completion: nil)
+        exit(0)
     }
     
     public func goBack(_ tag: String) {
@@ -245,6 +290,12 @@ open class JzActivity:UIViewController,ControlInstance {
         changePageListener(newViewController)
     }
     public func openDiaLog(_ newViewController: UIViewController,_ swipe:Bool,_ tag:String) {
+        for i in AllDialog{
+                         if(i.tag==tag){
+                          i.page.viewDidLoad()
+                          return
+                         }
+                     }
         if(swipe){
             newViewController.view.backgroundColor = .none
         }else{
@@ -292,6 +343,7 @@ open class JzActivity:UIViewController,ControlInstance {
     open func viewInit(){
         
     }
+    
     open func changePageListener(_ controler: pagemenory) {
         print("switch\(controler.tag)")
     }

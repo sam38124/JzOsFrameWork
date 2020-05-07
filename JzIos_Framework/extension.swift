@@ -319,3 +319,21 @@ extension String{
         return encodevalue.replace("u","\\u")
     }
 }
+extension Array{
+    
+    mutating func add(_ x:Element) {
+        self.append(x)
+     }
+    var size:Int{
+        get{
+            return self.count
+        }
+    }
+}
+extension Int{
+    func toHexString()-> String
+    {
+        let str = String(self, radix: 16)
+        return str
+    }
+}
