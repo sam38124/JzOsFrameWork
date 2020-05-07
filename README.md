@@ -55,10 +55,20 @@ class ViewController:JzActivity{
 <a name="All"></a>
 ```swift
 public protocol ControlInstance {
-   //取得紀錄
+    //取得紀錄
     func getPro(_ name: String,_ normal:String)->String
+    //取得紀錄
+    func getPro(_ name: String,_ normal:Bool)->Bool
+    //取得紀錄
+    func getPro(_ name: String,_ normal:Int)->Int
     //保存紀錄
     func setPro(_ name:String,_ key:String)
+    //保存紀錄
+    func setPro(_ name:String,_ key:Bool)
+    //保存紀錄
+    func setPro(_ name:String,_ key:Int)
+    //清除Pro紀錄
+    func removePro()
     //設定首頁
     func setHome(_ home:UIViewController,_ tag:String)
     //返回上一頁
@@ -114,7 +124,7 @@ public protocol ControlInstance {
     //從Storyboard取得一個新的controller實例
     func getNewController(_ name:String,_ id:String) -> UIViewController
     //跳轉至apple商店
-    func goAppStore(appid:String)
+    func goAppStore(appid:String)   
 }
 ```
 
