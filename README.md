@@ -5,7 +5,7 @@ This is a framework base on android architecture so you can very easily bulid an
 
 [android版本](https://github.com/sam38124/JzFrameWork)
 ## List
-* [How to import to project?](#Import)
+* [How to introduce to the project?](#Import)
 * [Quick Start](#Use)
 * [Exposure method](#All)
 * [About me](#About)
