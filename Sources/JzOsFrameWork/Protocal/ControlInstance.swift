@@ -37,6 +37,8 @@ public protocol ControlInstance {
     func getPageByTag(_ tag:String) -> UIViewController?
     //打開Dialog
     func openDiaLog(_ newViewController: UIViewController,_ swipe:Bool,_ tag:String)
+    //打開上滑Dialog可下滑關閉
+    func openBottomSheetDialog(_ newViewController: UIViewController,_ swipe:Bool,_ tag:String)
     //關閉所有Dialog
     func closeDialLog()
     //關閉tag為輸入值的Dialog
@@ -79,5 +81,9 @@ public protocol ControlInstance {
     func getNewController(_ name:String,_ id:String) -> UIViewController
     //跳轉至apple商店
     func goAppStore(appid:String)
+    //取得Apk版本號
+    func getApkVersion()->String
+    //View中元件的遍歷
+    func getAllSubViews(_ view:UIView)->[UIView]
     
 }

@@ -9,44 +9,82 @@
 import Foundation
 import UIKit
 open class JzActivity:UIViewController,ControlInstance {
+    public func getAllSubViews(_ view:UIView) -> [UIView] {
+        return listallView(view.subviews)
+    }
+    
+    public func openBottomSheetDialog(_ newViewController: UIViewController, _ swipe: Bool, _ tag: String) {
+        let buttonSheet=BottomSheetControler()
+        for i in AllDialog{
+            if(i.tag==tag){
+                i.page.viewDidLoad()
+                return
+            }
+        }
+        buttonSheet.view.backgroundColor = .none
+        if(swipe){
+            newViewController.view.backgroundColor = .none
+        }else{
+            newViewController.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+        }
+        let page=pagemenory()
+        page.page=newViewController
+        page.tag=tag
+        buttonSheet.view.addSubview(newViewController.view)
+        newViewController.view.frame = self.view.bounds
+        newViewController.didMove(toParent: buttonSheet)
+        addChild(buttonSheet)
+        self.view.addSubview(buttonSheet.view)
+        buttonSheet.view.frame = self.view.bounds
+        buttonSheet.didMove(toParent: self)
+        AllDialog.append(page)
+    }
+    
+    public func getApkVersion()->String {
+        if let currentUserInstallVersion =  Bundle(for: type(of: self)).infoDictionary?["CFBundleShortVersionString"] as? String {
+            return currentUserInstallVersion
+        }
+        return "noversion"
+    }
+    
     public func getPro(_ name: String, _ normal: Bool) -> Bool {
         let preferences = UserDefaults.standard
-             let currentLevelKey = name
-             if preferences.object(forKey: currentLevelKey) == nil {
-                 return normal
-             } else {
-                let currentLevel = preferences.bool(forKey: currentLevelKey)
-                 return currentLevel
-             }
+        let currentLevelKey = name
+        if preferences.object(forKey: currentLevelKey) == nil {
+            return normal
+        } else {
+            let currentLevel = preferences.bool(forKey: currentLevelKey)
+            return currentLevel
+        }
     }
     
     public func getPro(_ name: String, _ normal: Int) -> Int {
         let preferences = UserDefaults.standard
-                    let currentLevelKey = name
-                    if preferences.object(forKey: currentLevelKey) == nil {
-                        return normal
-                    } else {
-                       let currentLevel = preferences.integer(forKey: currentLevelKey)
-                        return currentLevel
-                    }
+        let currentLevelKey = name
+        if preferences.object(forKey: currentLevelKey) == nil {
+            return normal
+        } else {
+            let currentLevel = preferences.integer(forKey: currentLevelKey)
+            return currentLevel
+        }
     }
     
     public func setPro(_ name: String, _ key: Bool) {
         let preferences = UserDefaults.standard
-               preferences.set(key,forKey: name)
-               let didSave = preferences.synchronize()
-               if !didSave {
-                   print("saverror")
-               }
+        preferences.set(key,forKey: name)
+        let didSave = preferences.synchronize()
+        if !didSave {
+            print("saverror")
+        }
     }
     
     public func setPro(_ name: String, _ key: Int) {
         let preferences = UserDefaults.standard
-               preferences.set(key,forKey: name)
-               let didSave = preferences.synchronize()
-               if !didSave {
-                   print("saverror")
-               }
+        preferences.set(key,forKey: name)
+        let didSave = preferences.synchronize()
+        if !didSave {
+            print("saverror")
+        }
     }
     
     public func removePro() {
@@ -75,7 +113,7 @@ open class JzActivity:UIViewController,ControlInstance {
                 memory.append(i)
             }
         }
-    AllDialog=memory
+        AllDialog=memory
     }
     
     public func getDrawer()->UIViewController {
@@ -117,7 +155,7 @@ open class JzActivity:UIViewController,ControlInstance {
                 caller.versionBack(nil)
                 return }
             let DaS=String(data: data, encoding: .utf8)!
-             if(DaS.components(separatedBy: "\"version\"").count<2){return}
+            if(DaS.components(separatedBy: "\"version\"").count<2){return}
             let NewVersion=DaS.components(separatedBy: "\"version\"")[1].components(separatedBy:"\"")[1]
             caller.versionBack(NewVersion)
         }
@@ -291,11 +329,11 @@ open class JzActivity:UIViewController,ControlInstance {
     }
     public func openDiaLog(_ newViewController: UIViewController,_ swipe:Bool,_ tag:String) {
         for i in AllDialog{
-                         if(i.tag==tag){
-                          i.page.viewDidLoad()
-                          return
-                         }
-                     }
+            if(i.tag==tag){
+                i.page.viewDidLoad()
+                return
+            }
+        }
         if(swipe){
             newViewController.view.backgroundColor = .none
         }else{
@@ -347,6 +385,7 @@ open class JzActivity:UIViewController,ControlInstance {
     open func changePageListener(_ controler: pagemenory) {
         print("switch\(controler.tag)")
     }
+    
     @objc func swipe(_ recognizer:UISwipeGestureRecognizer){
         if(drawer == nil||lockdrawer){return}
         let point=recognizer.location(in: self.view)
@@ -363,6 +402,16 @@ open class JzActivity:UIViewController,ControlInstance {
         }else{
             if(recognizer.state == .ended){openDrawer()}
         }
+    }
+    public func listallView(_ inview:[UIView])->[UIView]{
+        var views=[UIView]()
+        for view in inview {
+            views.append(view)
+            if(view.subviews.count>0){
+                views.append(contentsOf: listallView(view.subviews))
+            }
+        }
+        return views
     }
 }
 
