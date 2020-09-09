@@ -15,7 +15,7 @@ This is a framework base on android architecture so you can very easily bulid an
 > Support Swift Package。 <br/>
 
 #### 1.Open xcode and paste link for Swift Package
-+ > ##### https://github.com/sam38124/TestLibrary/JzOsFrameWork 
++ > ##### https://github.com/sam38124/JzOsFrameWork 
 
 ## Quick Start
 
