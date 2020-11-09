@@ -62,6 +62,14 @@ extension Data {
     }
 }
 extension UIView {
+    public func roundCorners(corners: UIRectCorner, radius: CGFloat) {
+         let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+
+         let mask = CAShapeLayer()
+        
+         mask.path = path.cgPath
+         layer.mask = mask
+     }
     @IBInspectable var shadow: CGSize {
         get {
             return layer.shadowOffset
@@ -80,6 +88,17 @@ extension UIView {
             layer.cornerRadius = newValue
             layer.masksToBounds = newValue > 0
         }}
+    @IBInspectable var cornerTopL: CGFloat {
+        get {
+           
+            return layer.cornerRadius
+        }
+        set {
+            roundCorners(corners: [.topLeft], radius: newValue)
+        }
+    }
+    
+ 
     
     @IBInspectable var borderWidth: CGFloat {
         get {

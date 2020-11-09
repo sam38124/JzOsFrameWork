@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-open class pagemenory {
+public  class pagemenory {
     public var page:UIViewController!=nil
     public var tag:String=""
     public var fragroot:UIView!=nil

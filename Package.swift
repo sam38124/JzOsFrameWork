@@ -27,5 +27,6 @@ let package = Package(
         .testTarget(
             name: "JzOsFrameWorkTests",
             dependencies: ["JzOsFrameWork"]),
+        
     ]
 )

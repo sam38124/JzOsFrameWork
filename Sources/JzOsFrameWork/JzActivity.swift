@@ -13,7 +13,7 @@ open class JzActivity:UIViewController,ControlInstance {
         return listallView(view.subviews)
     }
     
-    public func openBottomSheetDialog(_ newViewController: UIViewController, _ swipe: Bool, _ tag: String) {
+    open func openBottomSheetDialog(_ newViewController: UIViewController, _ swipe: Bool, _ tag: String) {
         let buttonSheet=BottomSheetControler()
         for i in AllDialog{
             if(i.tag==tag){
@@ -21,9 +21,9 @@ open class JzActivity:UIViewController,ControlInstance {
                 return
             }
         }
-        buttonSheet.view.backgroundColor = .none
+        buttonSheet.view.backgroundColor = .clear
         if(swipe){
-            newViewController.view.backgroundColor = .none
+            newViewController.view.backgroundColor = .clear
         }else{
             newViewController.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
         }
