@@ -129,8 +129,6 @@ public protocol ControlInstance {
 + ##### <font color="#660000">【Square Studio】四方工作室-CEO </font><br />
 #### <font color="#0000dd"> Main skill: </font><br /> 
 + ##### Android and IOS(4 years)<br/>  
-+ ##### Jsp(2 years)<br/> 
-+ ##### Javascript and Jquery and Ktor(1 years)<br /> 
 #### <font color="#0000dd"> Contact information: </font><br /> 
 +  ##### line:sam38124<br /> 
 
